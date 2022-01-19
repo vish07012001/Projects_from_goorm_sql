@@ -1,0 +1,25 @@
+mysql-ctl cli;
+CREATE database shirts_db;
+use shirts_db;
+CREATE TABLE shirts(shirt_id int NOT NULL AUTO_INCREMENT,PRIMARY KEY(shirt_id),article varchar(15), color varchar(15), shirt_size varchar(2), last_worn int);
+DESC shirts;
+SELECT * FROM shirts;
+INSERT into shirts(article, color , shirt_size, last_worn) values('t-shirt', 'white', 'S', 10),
+('t-shirt', 'green', 'S', 200),
+('polo shirt', 'black', 'M', 10),
+('tank top', 'blue', 'S', 50),
+('t-shirt', 'pink', 'S', 0),
+('polo shirt', 'red', 'M', 5),
+('tank top', 'white', 'S', 200),
+('tank top', 'blue', 'M', 15);
+SELECT * FROM shirts;
+INSERT into shirts(article,color,shirt_size,last_worn) values("polo shirt","purple",'M',50);
+SELECT * FROM shirts;
+SELECT article,color FROM shirts;
+SELECT article,color,shirt_size,last_worn from shirts WHERE shirt_size='M';
+UPDATE  shirts SET shirt_size = 'L' WHERE article = "polo shirt";
+UPDATE shirts SET last_worn = 0 WHERE last_worn = 15;
+UPDATE shirts SET color = "off white" ,shirt_size = 'XS' WHERE color = "white";
+DELETE FROM shirts WHERE last_worn =200;
+DELETE FROM shirts WHERE article = "tank top";
+SELECT * FROM shirts;
